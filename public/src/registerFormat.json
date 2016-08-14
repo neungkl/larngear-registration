@@ -1,0 +1,115 @@
+[
+  {
+    "title": "prefix",
+    "type": "enum",
+    "valid": ["master", "miss", "mr", "mrs"]
+  },
+  {
+    "title": "name",
+    "type": "text",
+    "valid": {
+        "length": 30
+    }
+  },
+  {
+    "title": "surname",
+    "type": "text",
+    "valid": {
+        "length": 30
+    }
+  },
+  {
+    "title": "nickname",
+    "type": "text",
+    "valid": {
+        "length": 20
+    }
+  },
+  {
+    "title": "personalID",
+    "type": "text",
+    "valid": {
+        "regex": "^[1-9][0-9]{12}$"
+    }
+  },
+  {
+    "title": "province",
+    "type": "enum",
+    "valid": []
+  },
+  {
+    "title": "phone",
+    "type": "text",
+    "valid": {
+        "regex": "^0[0-9]{9}$"
+    }
+  },
+  {
+    "title": "blood",
+    "type": "enum",
+    "valid": ["A", "B", "O", "AB", "N"]
+  },
+  {
+    "title": "schoolYear",
+    "type": "enum",
+    "valid": ["4", "5"]
+  },
+  {
+    "title": "school",
+    "type": "text",
+    "valid": {
+        "length": 40
+    }
+  },
+  {
+    "title": "facebook",
+    "type": "text",
+    "nonRequire": true,
+    "valid": {
+        "length": 30
+    }
+  },
+  {
+    "title": "line",
+    "type": "text",
+    "nonRequire": true,
+    "valid": {
+        "length": 30
+    }
+  },
+  {
+    "title": "parentName",
+    "type": "text",
+    "valid": {
+        "length": 40
+    }
+  },
+  {
+    "title": "parentPhone",
+    "type": "text",
+    "valid": {
+        "regex": "^0[0-9]{9}$"
+    }
+  },
+  {
+    "title": "parentRelation",
+    "type": "text",
+    "valid": {
+        "length": 10
+    }
+  },
+  {
+    "title": "knowFrom",
+    "type": "enum",
+    "nonRequire": true,
+    "valid": []
+  },
+  {
+    "title": "allergic",
+    "type": "text",
+    "nonRequire": true,
+    "valid": {
+        "length": 40
+    }
+  }
+]

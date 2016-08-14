@@ -1,0 +1,101 @@
+body {
+  font-family: 'Kanit', Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #222; }
+
+.m-t-1 {
+  margin-top: 1rem; }
+
+.m-t-2 {
+  margin-top: 2em; }
+
+.m-t-3 {
+  margin-top: 3em; }
+
+.m-b-1 {
+  margin-bottom: 1em; }
+
+.m-b-2 {
+  margin-bottom: 2em; }
+
+.m-b-3 {
+  margin-bottom: 3em; }
+
+.center {
+  display: block;
+  margin: auto; }
+
+.head-bg {
+  height: 150px;
+  background: url("../../images/head-background.jpg") #c10303 no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #FFF; }
+  .head-bg .head {
+    font-size: 5rem;
+    text-shadow: 0 2px 3px #111; }
+    @media screen and (max-width: 480px) {
+      .head-bg .head {
+        font-size: 4rem; } }
+  .head-bg .btn-section {
+    margin-top: 1.5em; }
+    .head-bg .btn-section .btn {
+      background: #fff;
+      border-color: #fff;
+      color: #111;
+      margin: 5px;
+      font-size: 1.7rem; }
+      @media screen and (max-width: 480px) {
+        .head-bg .btn-section .btn {
+          font-size: 1.6rem; } }
+
+.form-section {
+  background: #eee; }
+  .form-section > .container {
+    background: #f8f8f8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+  .form-section .section .number-box {
+    border-radius: 50%;
+    color: #c10303;
+    text-align: center;
+    font-size: 5rem;
+    border: 4px dashed; }
+  .form-section .section .description {
+    font-size: 2.75rem; }
+    @media screen and (max-width: 767px) {
+      .form-section .section .description {
+        text-align: center;
+        font-size: 2.5rem; } }
+    .form-section .section .description .more {
+      color: #666;
+      font-size: 1.75rem; }
+
+.register-form {
+  vertical-align: middle; }
+  .register-form > .row {
+    padding: 4px; }
+    @media screen and (max-width: 480px) {
+      .register-form > .row {
+        padding: 0; } }
+  .register-form .require {
+    color: #d20808; }
+  .register-form .title {
+    font-weight: 400;
+    padding-top: 10px;
+    text-align: right; }
+    @media screen and (max-width: 767px) {
+      .register-form .title {
+        text-align: left;
+        padding-bottom: 5px; } }
+    .register-form .title .more {
+      font-weight: 300;
+      color: #999;
+      font-style: italic; }
+  .register-form > .err {
+    color: #c10303; }
+    .register-form > .err .form-control {
+      border-color: #c10303;
+      color: #fc2e2e; }
+    .register-form > .err .more {
+      color: #f30404; }

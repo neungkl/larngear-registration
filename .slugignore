@@ -1,0 +1,4 @@
+private/
+package.json
+gulpfile.js
+.babelrc

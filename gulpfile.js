@@ -7,8 +7,11 @@ var minifyCss = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+var env = require('node-env-file');
 
-var production = false;
+env(__dirname + '/.env');
+
+var production = (process.env.MODE != "DEVELOPMENT");
 
 gulp.task('watch', function() {
   browserSync.init({
@@ -17,30 +20,30 @@ gulp.task('watch', function() {
     }
   });
 
-  gulp.watch(['public/**/*', 'views/**/*'], ['sass', 'es6']);
-  gulp.watch(['public/**/*', 'views/**/*']).on('change', browserSync.reload);
+  gulp.start(['sass', 'es6']);
+
+  gulp.watch(['private/**/*.scss', 'private/**/*.es6'], ['sass', 'es6']);
+  gulp.watch(['private/**/*', 'public/**/*']).on('change', browserSync.reload);
 });
 
 gulp.task('sass', function() {
-	gulp.src('public/**/*.sass')
+	gulp.src('private/**/*.scss')
 		.pipe(plumber())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulpif(production, sourcemaps.init()))
 		.pipe(gulpif(production, minifyCss()))
 		.pipe(gulpif(production, sourcemaps.write('maps/')))
-		.pipe(gulp.dest('public/'));
+		.pipe(gulp.dest('public/src/'));
 });
 
 gulp.task('es6', function() {
-	gulp.src('src/**/*.es6')
+	gulp.src('private/**/*.es6')
 		.pipe(plumber())
-		.pipe(babel({
-			presets: ['es2015']
-		}))
+		.pipe(babel())
 		.pipe(gulpif(production, sourcemaps.init()))
 		.pipe(gulpif(production, uglify()))
 		.pipe(gulpif(production, sourcemaps.write('maps/')))
-		.pipe(gulp.dest('dist/'));
+		.pipe(gulp.dest('public/src/'));
 });
 
 gulp.task('default', ['sass', 'es6']);
