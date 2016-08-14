@@ -1,8 +1,10 @@
 <?php
   require('../vendor/autoload.php');
 
-  $dotenv = new Dotenv\Dotenv(__DIR__."/..");
-  $dotenv->load();
+  if(getenv("MODE") !== "PRODUCTION") {
+    $dotenv = new Dotenv\Dotenv(__DIR__."/..");
+    $dotenv->load();
+  }
 ?>
 
 <!doctype html>
