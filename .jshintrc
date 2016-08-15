@@ -1,0 +1,7 @@
+{
+  "browser": true,
+  "jquery": true,
+  "devel": true,
+  "esversion": 6,
+  "indent": 2
+}

@@ -93,9 +93,12 @@ body {
       color: #999;
       font-style: italic; }
   .register-form > .err {
+    transition: all 0.3s;
     color: #c10303; }
     .register-form > .err .form-control {
+      transition: all 0.3s;
       border-color: #c10303;
       color: #fc2e2e; }
     .register-form > .err .more {
+      transition: all 0.3s;
       color: #f30404; }

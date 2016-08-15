@@ -23,7 +23,7 @@ gulp.task('watch', function() {
   gulp.start(['sass', 'es6']);
 
   gulp.watch(['private/**/*.scss', 'private/**/*.es6'], ['sass', 'es6']);
-  gulp.watch(['private/**/*', 'public/**/*']).on('change', browserSync.reload);
+  gulp.watch(['private/**/*']).on('change', browserSync.reload);
 });
 
 gulp.task('sass', function() {

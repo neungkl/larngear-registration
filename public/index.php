@@ -1,10 +1,5 @@
 <?php
-  require('../vendor/autoload.php');
-
-  if(getenv("MODE") !== "PRODUCTION") {
-    $dotenv = new Dotenv\Dotenv(__DIR__."/..");
-    $dotenv->load();
-  }
+  require('backends/env.php');
 ?>
 
 <!doctype html>
@@ -50,7 +45,7 @@
               <div class="description" style="display:none;">
                 กรณีที่เคยสมัครแล้ว
                 <div class="more">
-                  สามารถดาวโหลดเอกสารได้เลย ด้วยวิธีการกรอกหมายเลขบัตรประชาชนด้านล่างนี้
+                  สามารถดาวโหลดเอกสารได้เลย
                 </div>
               </div>
           </div>
@@ -62,7 +57,7 @@
       <hr>
 
       <div class="section">
-        <div class="row m-t-3 m-b-1">
+        <div class="row m-t-3">
           <div class="col-xs-12 col-sm-3">
             <div class="number-box center" style="display:none;">
               <i class="fa fa-times"></i>
@@ -84,9 +79,9 @@
 
               <div class="row">
                 <div class="col-sm-3"></div>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                   <div class="alert alert-warning">
-                    <span class="require" style="font-weight: 400;">*</span> คือ จำเป็นต้องกรอก
+                    <span class="require" style="font-weight: 400; font-size:1.1em;">*</span> คือ จำเป็นต้องกรอก
                   </div>
                 </div>
               </div>
@@ -241,7 +236,7 @@
                 </div>
                 <div class="col-sm-8">
                   <select class="form-control">
-                    <option value="">-</option>
+                    <option value="-">-</option>
                   </select>
                 </div>
               </div>
@@ -253,6 +248,20 @@
                   <input class="form-control" type="text" placeholder="เช่น ถั่วปากอ้า กุ้ง อาหารทะเล" maxlength="40">
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-8">
+                  <div class="alert alert-danger err-message" style="display:none;"></div>
+                </div>
+              </div>
+
+              <div class="row m-t-1">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-8">
+                  <div class="btn btn-primary btn-lg submit">สมัครค่าย !!!</div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -260,11 +269,46 @@
       </div>
     </div>
 
+    <div id="confirm" class="modal fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content panel-danger">
+          <div class="modal-header panel-heading">
+            คุณแน่ใจหรือไม่ที่จะส่งข้อมูลการสมัคร ?
+          </div>
+          <div class="modal-body">
+            ข้อมูลที่กรอกไปแล้วจะ "ไม่" สามารถแก้ไขได้อีก หากกดปุ่มยืนยันการสมัครไปแล้ว
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-confirm">ยืนยันการสมัคร</button>
+            <button type="button" data-dismiss="modal" class="btn">กลับไปแก้ไข</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="err-cnn" class="modal fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content panel-danger">
+          <div class="modal-header panel-heading">
+            การเชื่อมต่ออินเตอร์เน็ตมีปัญหา ?
+          </div>
+          <div class="modal-body">
+            ไม่สามารถโหลดข้อมูลบางอย่างได้ กรุณารีเฟรชหน้านี้ใหม่อีกครั้ง
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-confirm" onclick="javascript:location.reload();">
+              ตกลง
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="src/precompile/index.js"></script>
   <?php if(getenv("MODE") === "DEVELOPMENT") { ?>
+    <script src="src/precompile/test.js"></script>
     <script id="__bs_script__">
     //<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>".replace("HOST", location.hostname));

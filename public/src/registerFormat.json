@@ -102,7 +102,7 @@
     "title": "knowFrom",
     "type": "enum",
     "nonRequire": true,
-    "valid": []
+    "valid": ["-"]
   },
   {
     "title": "allergic",

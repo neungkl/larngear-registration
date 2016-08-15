@@ -1,12 +1,10 @@
-'use strict';
-
 let web = (() => {
+  'use strict';
 
   let provinceList;
   let registerFormat;
 
-  let initStyle = () => {
-
+  let resize = () => {
     let height, size;
 
     height = $(window).height() * 0.7;
@@ -17,13 +15,18 @@ let web = (() => {
     $('.form-section .number-box').css({
       width: size,
       height: size
-    })
+    });
 
     $('.form-section .number-box, .form-section .description').each(function(id, elm) {
       $(elm).css({
         paddingTop: (size - parseInt($(elm).css('font-size'))) / 2 - 15
       }).show();
     });
+  };
+
+  let initStyle = () => {
+
+    resize();
 
     $.ajax({
       url: 'src/provinceList.json',
@@ -33,7 +36,8 @@ let web = (() => {
         provinceList = res;
       },
       error: function() {
-        console.error('Can\'t download provinceList');
+        console.error('Can\'t Download ProvinceList');
+        $('#err-cnn').modal('show');
       }
     });
 
@@ -43,18 +47,17 @@ let web = (() => {
       dataType: 'json',
       success: function(res) {
         registerFormat = res;
-        for(let i=0; i<registerFormat.length; i++) {
-          if(registerFormat[i].title == 'province') {
+        for (let i = 0; i < registerFormat.length; i++) {
+          if (registerFormat[i].title == 'province') {
             registerFormat[i].valid = provinceList;
           }
         }
       },
       error: function() {
-        console.error('Can\'t download provinceList');
+        console.error('Can\'t Download ProvinceList');
+        $('#err-cnn').modal('show');
       }
     });
-
-    console.log(provinceList, registerFormat);
 
     $('.register-form .i-province select').append(
       provinceList.map(function(v) {
@@ -62,33 +65,41 @@ let web = (() => {
       }).join('')
     );
 
-  }
+    $('.register-form .submit').click(submit);
 
-  let validate = (str, prop) => {
+  };
+
+  /**
+   * EMPTY, TOO_LONG, REGEX_INCORRECT, NO_MATCH, PROP_NOT_FOUND
+   **/
+  let validate = (str, prop, format) => {
 
     str = $.trim(str);
 
-    for(let i=0; i<format.length; i++) {
+    for (let i = 0; i < format.length; i++) {
       let form = format[i];
-      if(form.title === prop) {
-        if(form.type === 'text') {
+      if (form.title === prop) {
 
-          if(str.length === 0)
+        if(!form.nonRequire) {
+          if (typeof str === 'undefined' || str === null || str.length === 0)
             return {
               success: false,
               msg: 'EMPTY'
             };
+        }
 
-          if(form.legnth) {
-            if(str.length > parseInt(form.length))
+        if (form.type === 'text') {
+
+          if (form.valid.legnth) {
+            if (str.length > parseInt(form.valid.length))
               return {
                 success: false,
                 msg: 'TOO_LONG'
               };
           }
 
-          if(form.regex) {
-            if(!(new RegEx(form.regex, "g").test(str)))
+          if (form.valid.regex) {
+            if (!(new RegExp(form.valid.regex, "g").test(str)))
               return {
                 success: false,
                 msg: 'REGEX_INCORRECT'
@@ -97,22 +108,22 @@ let web = (() => {
 
           return {
             success: true
-          }
+          };
         }
 
-        if(form.type == 'enum') {
-          for(let j=0; j<form.valid.length; j++) {
-            if(form.valid[j] == str) {
+        if (form.type == 'enum') {
+          for (let j = 0; j < form.valid.length; j++) {
+            if (form.valid[j] == str) {
               return {
                 success: true
-              }
+              };
             }
           }
 
           return {
             success: false,
             msg: 'NO_MATCH'
-          }
+          };
         }
 
       }
@@ -124,9 +135,119 @@ let web = (() => {
     };
   };
 
+  let submit = () => {
+    let val;
+    let message = "";
+    let send = {};
+
+    for (let i = 0; i < registerFormat.length; i++) {
+
+      let $top = $('.register-form .i-' + registerFormat[i].title);
+
+      if (registerFormat[i].type === 'enum') {
+        val = $top.find('select').val();
+      } else {
+        val = $top.find('input').val();
+      }
+
+      send[registerFormat[i].title] = val;
+
+      let resp = validate(val, registerFormat[i].title, registerFormat);
+
+      if (resp.success) {
+        $top.removeClass('err');
+        continue;
+      } else {
+        $top.addClass('err');
+      }
+
+      if (message === "") {
+        let name = $top.find('.title').html();
+        if (name.indexOf('<') != -1) name = $.trim(name.substr(0, name.indexOf('<')));
+        switch (resp.msg) {
+          case 'EMPTY':
+            message = "กรุณากรอกข้อมูลใน `" + name + "`";
+            break;
+          case 'TOO_LONG':
+            message = "ข้อความใน `" + name + "` มีขนาดยาวเกินไป";
+            break;
+          case 'REGEX_INCORRECT':
+            message = "ข้อมูลในช่อง `" + name + "` มีรูปแบบไม่ถูกต้อง";
+            break;
+          case 'NO_MATCH':
+            message = "กรุณาเลือกข้อมูลใน `" + name + "`";
+            break;
+          case 'PROP_NOT_FOUND':
+            message = "ERR_IMM : Propertie Not Found.";
+            break;
+        }
+      }
+    }
+
+    if(message === "") {
+      $.ajax({
+        url: 'register.php',
+        type: 'POST',
+        async: false,
+        data: {
+          q: 'personalCheck',
+          pid: send.personalID
+        },
+        dataType: 'json',
+        beforeSent: function() {
+          $('.register-form .err-message').text('กำลังตรวจสอบบัตรประชาชน...').show();
+        },
+        success: function(res) {
+          if(res.status === "duplicate") {
+            $('.register-form .i-personalID').addClass('err');
+            message = "บัตรประชาชนหมายเลข `" + send.personalID + "` มีคนใช้อยู่แล้ว";
+          }
+        },
+        error: function() {
+          message = 'ERR_CNN : ไม่สามารถตรวจสอบหมายเลขบัตรประชาชนได้';
+        }
+      });
+    }
+
+    if (message === "") {
+      $('.register-form .err-message').slideUp();
+
+      $('#confirm')
+        .modal({ backdrop: 'static', keyboard: false })
+        .one('click', '.btn-confirm', function() {
+
+          $.ajax({
+            url: 'register.php',
+            type: 'POST',
+            data : {
+              q: 'register',
+              form: send
+            },
+            dataType: 'json',
+            success: function(res) {
+              if(res.success) {
+                alert('success');
+              } else {
+                $("#confirm").modal('hide');
+                $('.register-form .err-message').text('ไม่สามารถสมัครได้ กรุณาลองใหม่อีกครั้ง').show();
+                console.error(res);
+              }
+            },
+            error: function() {
+              $("#confirm").modal('hide');
+              $('.register-form .err-message').text('ERR_CNN : ไม่สามารถเชื่อมต่ออินเตอร์เน็ตได้').show();
+            }
+          });
+
+        });
+    } else {
+      $('.register-form .err-message').text(message).slideDown();
+    }
+  };
+
   $(() => {
 
-    $(window).resize(initStyle)
+    $(window).resize(resize);
     initStyle();
 
   });
