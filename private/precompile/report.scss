@@ -1,0 +1,24 @@
+@import 'base';
+
+.head-bg {
+  height: 150px;
+  background: url('../../images/head-background.jpg') $redColor no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #FFF;
+  .head {
+    font-size: 5rem;
+    text-shadow: 0 2px 3px #111;
+    @media screen and (max-width: 480px) {
+      font-size: 4rem;
+    }
+  }
+}
+
+.content-section {
+  background: #eee;
+  & > .container {
+    background: #f8f8f8;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+  }
+}

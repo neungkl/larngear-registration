@@ -47,8 +47,40 @@
       $vals = join(",", array_map("addDoubleQuote", $vals));
 
       $result = $conn->query("INSERT INTO student($keys) VALUES ($vals)");
-      if($result) reject('{"success":true}');
 
+      // Pass all validation test
+      if($result) {
+
+        require('backends/gencode.php');
+
+        $gen = new GenCode($conn);
+        $type = "-";
+
+        if($_POST['form']['prefix'] == "master" || $_POST['form']['prefix'] == "mr") {
+          if($_POST['form']['province'] == "กรุงเทพมหานคร") $type = "A";
+          else $type = "B";
+        } else {
+          if($_POST['form']['province'] == "กรุงเทพมหานคร") $type = "C";
+          else $type = "D";
+        }
+
+        if($gen->generate($_POST['form']['personalID'], $type)) {
+
+          require('backends/token.php');
+          require('backends/env.php');
+
+          $token = new Token(getenv('TOKEN'));
+          $token = $token->hash($_POST['form']['personalID']);
+
+          reject('{"success":true, "token": "'.$token.'"}');
+        }
+        else {
+          $conn->query("DELETE FROM student WHERE personalID=\"{$_POST['form']['personalID']}\"");
+          reject('{"success":false, "msg":"Generate code fail"}');
+        }
+      }
+
+      echo $conn->error;
       reject('{"success":false, "msg":"Insert errror"}');
 
     }

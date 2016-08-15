@@ -220,7 +220,7 @@ var web = function () {
           dataType: 'json',
           success: function success(res) {
             if (res.success) {
-              alert('success');
+              window.location.href = "report.php?pid=" + send.personalID + "&token=" + res.token;
             } else {
               $("#confirm").modal('hide');
               $('.register-form .err-message').text('ไม่สามารถสมัครได้ กรุณาลองใหม่อีกครั้ง').show();
