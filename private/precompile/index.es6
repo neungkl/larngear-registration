@@ -65,8 +65,10 @@ let web = (() => {
       }).join('')
     );
 
-    $('.register-form .submit').click(submit);
+    $('.register-form .err-message, .skip-form .err-message').hide();
 
+    $('.register-form .submit').click(submit);
+    $('.skip-form .submit').click(skipSubmit);
   };
 
   /**
@@ -243,6 +245,52 @@ let web = (() => {
     } else {
       $('.register-form .err-message').text(message).slideDown();
     }
+  };
+
+  let skipSubmit = () => {
+
+    let data = {
+      personalID : $.trim($('.skip-form .personalID input').val()),
+      name : $.trim($('.skip-form .name input').val()),
+      surname: $.trim($('.skip-form .surname input').val())
+    };
+
+    let err = (txt) => {
+      $('.skip-form .err-message').text(txt).slideDown();
+    };
+
+    if(data.personalID === null || data.personalID.length === 0) {
+      err('กรุณากรอก "หมายเลขบัตรประชาชน"');
+    } else if(data.name === null || data.name.length === 0) {
+      err('กรุณากรอก "ชื่อ"');
+    } else if(data.surname === null || data.surname.length === 0) {
+      err('กรุณากรอก "นามสกุล"');
+    } else if(!(new RegExp("^[1-9][0-9]{12}$").test(data.personalID))) {
+      err('"หมายเลขบัตรประชาชน" ไม่ถูกต้อง');
+    } else {
+      $('.skip-form .err-message').slideUp();
+      $.ajax({
+        url: 'backends/skipcheck.php',
+        type: 'POST',
+        data: data,
+        dataType: 'json',
+        success: function(res) {
+          if(res.success) {
+            window.location.href = "report.php?pid=" + data.personalID + "&token=" + res.token;
+          } else if(res.msg === "NAME_NOT_MATCH") {
+            err('ชื่อ-นามสกุล ไม่ตรงกับข้อมูลการสมัครที่ใช้บัตรประชาชนหมายเลขนี้');
+          } else if(res.msg === "ID_NOT_FOUND") {
+            err('ไม่พบบัตรประชาชนหมายเลข "' + data.personalID + '" ในระบบ');
+          } else {
+            err('กรุณากรอกข้อมูล');
+          }
+        },
+        error: function() {
+          err('ERR_CNN : ไม่สามารถเชื่อมต่ออินเตอร์เน็ต กรุณาลองอีกครั้ง');
+        }
+      });
+    }
+
   };
 
   $(() => {

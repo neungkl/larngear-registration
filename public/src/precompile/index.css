@@ -71,34 +71,34 @@ body {
       color: #666;
       font-size: 1.75rem; }
 
-.register-form {
+.register-form, .skip-form {
   vertical-align: middle; }
-  .register-form > .row {
+  .register-form > .row, .skip-form > .row {
     padding: 4px; }
     @media screen and (max-width: 480px) {
-      .register-form > .row {
+      .register-form > .row, .skip-form > .row {
         padding: 0; } }
-  .register-form .require {
+  .register-form .require, .skip-form .require {
     color: #d20808; }
-  .register-form .title {
+  .register-form .title, .skip-form .title {
     font-weight: 400;
     padding-top: 10px;
     text-align: right; }
     @media screen and (max-width: 767px) {
-      .register-form .title {
+      .register-form .title, .skip-form .title {
         text-align: left;
         padding-bottom: 5px; } }
-    .register-form .title .more {
+    .register-form .title .more, .skip-form .title .more {
       font-weight: 300;
       color: #999;
       font-style: italic; }
-  .register-form > .err {
+  .register-form > .err, .skip-form > .err {
     transition: all 0.3s;
     color: #c10303; }
-    .register-form > .err .form-control {
+    .register-form > .err .form-control, .skip-form > .err .form-control {
       transition: all 0.3s;
       border-color: #c10303;
       color: #fc2e2e; }
-    .register-form > .err .more {
+    .register-form > .err .more, .skip-form > .err .more {
       transition: all 0.3s;
       color: #f30404; }

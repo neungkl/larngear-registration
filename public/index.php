@@ -35,7 +35,7 @@
         <!-- Register Type 1 -->
 
         <div class="section">
-          <div class="row m-t-3 m-b-3">
+          <div class="row m-t-3">
             <div class="col-xs-12 col-sm-3">
               <div class="number-box center" style="display:none;">
                 <i class="fa fa-check"></i>
@@ -50,14 +50,73 @@
               </div>
           </div>
         </div>
+
+        <div class="col-xs-12 col-md-offset-1 col-md-10">
+          <div class="container-fluid skip-form">
+            <div class="row personalID">
+              <div class="col-sm-3 title">
+                เลขบัตรประชาชน
+                <div class="more">ไม่ต้องใส่เครื่องหมาย -</div>
+              </div>
+              <div class="col-sm-9">
+                <input class="form-control" type="text" maxlength="30">
+              </div>
+            </div>
+            <div class="row">
+              <div class="name">
+                <div class="col-sm-3 title">
+                  ชื่อ
+                  <div class="more">ไม่ต้องใส่คำนำหน้าชื่อ</div>
+                </div>
+                <div class="col-sm-4">
+                  <input class="form-control" type="text" maxlength="30">
+                </div>
+              </div>
+              <div class="surname">
+                <div class="col-sm-1 title">
+                  นามสกุล
+                </div>
+                <div class="col-sm-4">
+                  <input class="form-control" type="text" maxlength="30">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+              <div class="col-sm-8">
+                <div class="alert alert-danger err-message">test</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+              <div class="col-sm-8">
+                <button class="btn btn-primary submit">ดาวโหลดเอกสาร</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 m-b-1">
+          &nbsp;
+        </div>
       </div>
 
       <!-- Register Type 2 -->
 
-      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+        </div>
+      </div>
 
       <div class="section">
-        <div class="row m-t-3">
+        <div class="row">
+          <div class="col-xs-12 m-t-1">&nbsp;</div>
+        </div>
+        <div class="row">
           <div class="col-xs-12 col-sm-3">
             <div class="number-box center" style="display:none;">
               <i class="fa fa-times"></i>
@@ -259,7 +318,7 @@
               <div class="row m-t-1">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-8">
-                  <div class="btn btn-primary btn-lg submit">สมัครค่าย !!!</div>
+                  <button class="btn btn-primary btn-lg submit">สมัครค่าย !!!</button>
                 </div>
               </div>
             </div>
