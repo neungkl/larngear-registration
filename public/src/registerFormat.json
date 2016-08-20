@@ -33,6 +33,13 @@
     }
   },
   {
+    "title": "address",
+    "type": "longtext",
+    "valid": {
+      "length": 180
+    }
+  },
+  {
     "title": "province",
     "type": "enum",
     "valid": []
@@ -47,7 +54,7 @@
   {
     "title": "blood",
     "type": "enum",
-    "valid": ["A", "B", "O", "AB", "N"]
+    "valid": ["A","B", "O", "AB", "N"]
   },
   {
     "title": "schoolYear",
@@ -60,6 +67,11 @@
     "valid": {
         "length": 40
     }
+  },
+  {
+    "title": "schoolProvince",
+    "type": "enum",
+    "valid": []
   },
   {
     "title": "facebook",

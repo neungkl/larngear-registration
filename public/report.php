@@ -34,18 +34,18 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <h1>
             <?php
-            if(isset($_GET['pid']) && isset($_GET['token']) && $token->check($_GET['pid'], $_GET['token'])) {
+            if(!isset($_GET['pid']) && !isset($_GET['token'])) {
+              echo '<div style="margin: 30px 0px;" class="alert alert-danger">ERR_URL_PARAMS : The URL parameters are incorrect.</div>';
+            } else if(!$token->check($_GET['pid'], $_GET['token'])) {
+              echo '<div style="margin: 30px 0px;" class="alert alert-danger">ERR_TOKEN : Token is incorrect.</div>';
+            } else {
               $t = $conn->query("SELECT code FROM student WHERE personalID=\"{$_GET['pid']}\"");
               $t = $t->fetch_assoc();
               $t = $t['code'];
               echo $t;
-            } else {
-              echo 'Permission denide';
             }
             ?>
-            </h1>
           </div>
         </div>
       </div>

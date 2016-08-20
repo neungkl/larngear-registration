@@ -48,7 +48,8 @@ let web = (() => {
       success: function(res) {
         registerFormat = res;
         for (let i = 0; i < registerFormat.length; i++) {
-          if (registerFormat[i].title == 'province') {
+          if (registerFormat[i].title == 'province' ||
+              registerFormat[i].title == 'schoolProvince') {
             registerFormat[i].valid = provinceList;
           }
         }
@@ -59,7 +60,7 @@ let web = (() => {
       }
     });
 
-    $('.register-form .i-province select').append(
+    $('.register-form .i-province select, .register-form .i-schoolProvince select').append(
       provinceList.map(function(v) {
         return '<option value="' + v + '">' + v + '</option>';
       }).join('')
@@ -69,6 +70,35 @@ let web = (() => {
 
     $('.register-form .submit').click(submit);
     $('.skip-form .submit').click(skipSubmit);
+
+    $('.register-description .submit').click(function() {
+      if($('.register-description .checkbox input')[0].checked) {
+        $('.register-description').fadeOut(function() {
+          $('.register-form').fadeIn();
+
+          $('html, body').animate({
+              scrollTop: $('.register-form .i-prefix').prev().offset().top
+          }, 500);
+
+        });
+      } else {
+        $('.register-description .checkbox')
+          .addClass('alert alert-danger');
+      }
+
+    });
+
+    $('.head-bg .btn.skip').click(function() {
+      $('html, body').animate({
+          scrollTop: $('.skip-form').parents('.section').offset().top
+      }, 500);
+    });
+
+    $('.head-bg .btn.regist').click(function() {
+      $('html, body').animate({
+          scrollTop: $('.register-form').parents('.section').offset().top
+      }, 500);
+    });
   };
 
   /**
@@ -90,7 +120,7 @@ let web = (() => {
             };
         }
 
-        if (form.type === 'text') {
+        if (form.type === 'text' || form.type === 'longtext') {
 
           if (form.valid.legnth) {
             if (str.length > parseInt(form.valid.length))
@@ -148,6 +178,8 @@ let web = (() => {
 
       if (registerFormat[i].type === 'enum') {
         val = $top.find('select').val();
+      } else if(registerFormat[i].type === 'longtext') {
+        val = $top.find('textarea').val();
       } else {
         val = $top.find('input').val();
       }
@@ -168,19 +200,19 @@ let web = (() => {
         if (name.indexOf('<') != -1) name = $.trim(name.substr(0, name.indexOf('<')));
         switch (resp.msg) {
           case 'EMPTY':
-            message = "กรุณากรอกข้อมูลใน `" + name + "`";
+            message = "กรุณากรอกข้อมูลในช่อง `" + name + "`";
             break;
           case 'TOO_LONG':
-            message = "ข้อความใน `" + name + "` มีขนาดยาวเกินไป";
+            message = "ข้อความในช่อง `" + name + "` มีขนาดยาวเกินไป";
             break;
           case 'REGEX_INCORRECT':
             message = "ข้อมูลในช่อง `" + name + "` มีรูปแบบไม่ถูกต้อง";
             break;
           case 'NO_MATCH':
-            message = "กรุณาเลือกข้อมูลใน `" + name + "`";
+            message = "กรุณาเลือกข้อมูลในช่อง `" + name + "`";
             break;
           case 'PROP_NOT_FOUND':
-            message = "ERR_IMM : Propertie Not Found.";
+            message = "ERR_IMM : Property Not Found.";
             break;
         }
       }
@@ -231,19 +263,19 @@ let web = (() => {
                 window.location.href = "report.php?pid=" + send.personalID + "&token=" + res.token;
               } else {
                 $("#confirm").modal('hide');
-                $('.register-form .err-message').text('ไม่สามารถสมัครได้ กรุณาลองใหม่อีกครั้ง').show();
+                $('.register-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> ไม่สามารถสมัครได้ กรุณาลองใหม่อีกครั้ง<br> ERR_CODE : ' + res.msg.toUpperCase()).show();
                 console.error(res);
               }
             },
             error: function() {
               $("#confirm").modal('hide');
-              $('.register-form .err-message').text('ERR_CNN : ไม่สามารถเชื่อมต่ออินเตอร์เน็ตได้').show();
+              $('.register-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> ').append('ERR_CNN : ไม่สามารถเชื่อมต่ออินเตอร์เน็ตได้').show();
             }
           });
 
         });
     } else {
-      $('.register-form .err-message').text(message).slideDown();
+      $('.register-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> ').append(message).slideDown();
     }
   };
 
@@ -256,7 +288,7 @@ let web = (() => {
     };
 
     let err = (txt) => {
-      $('.skip-form .err-message').text(txt).slideDown();
+      $('.skip-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> ').append(txt).slideDown();
     };
 
     if(data.personalID === null || data.personalID.length === 0) {

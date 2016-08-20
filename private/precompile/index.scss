@@ -54,6 +54,24 @@
     }
   }
 }
+
+.register-description {
+  font-size: 1.6rem;
+  .header {
+    font-size: 3rem;
+    @media screen and (max-width: 767px) {
+      font-size: 2.5rem;
+    }
+  }
+  .highlight {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  .checkbox label {
+    font-weight: 300;
+  }
+}
+
 .register-form,.skip-form {
   vertical-align: middle;
   & > .row {

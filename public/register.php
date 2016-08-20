@@ -27,15 +27,15 @@
       $vals = [];
 
       foreach($_POST['form'] as $key => $val) {
-        $resp = $validator->check($key, $val);
 
-        array_push($keys, $key);
-        array_push($vals, $val);
+        $resp = $validator->check($val, $key);
 
-        if(!$resp['success']) {
+        if($resp['success'] === "false") {
           reject('{"success":false, "msg":"Incorrect data"}');
         }
 
+        array_push($keys, $key);
+        array_push($vals, $val);
       }
 
       function addDoubleQuote($val) {
@@ -80,7 +80,6 @@
         }
       }
 
-      echo $conn->error;
       reject('{"success":false, "msg":"Insert errror"}');
 
     }

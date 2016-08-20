@@ -1,9 +1,13 @@
 <?php
 class Validation {
   private $format;
+  private $provinceList;
 
   public function __construct($format) {
     $this->format = $format;
+
+    $provinceList = file_get_contents(__dir__.'/../src/provinceList.json');
+    $this->provinceList = json_decode($provinceList, true);
   }
 
   public function getRequireField() {
@@ -26,6 +30,10 @@ class Validation {
 
       if ($form['title'] === $prop) {
 
+        if($prop == "province" || $prop == "schoolProvince") {
+          $form['valid'] = $this->provinceList;
+        }
+
         if (!isset($form['nonRequire']) || $form['nonRequire'] == false) {
           if (!isset($str) || strlen($str) === 0) return array(
             'success' => 'false',
@@ -33,7 +41,7 @@ class Validation {
           );
         }
 
-        if ($form['type'] === 'text') {
+        if ($form['type'] === 'text' || $form['type'] === 'longtext') {
 
           if (isset($form['valid']['length'])) {
             if (strlen($str) > (int) $form['valid']['length']) return array(
@@ -43,7 +51,7 @@ class Validation {
           }
 
           if (isset($form['valid']['regex'])) {
-            if (!preg_match('/'.$form['valid']['regex'].'/g', $str)) return array(
+            if (!preg_match('/'.$form['valid']['regex'].'/', $str)) return array(
               'success' => 'false',
               'msg' => 'REGEX_INCORRECT'
             );
@@ -54,7 +62,9 @@ class Validation {
           );
         }
 
+
         if ($form['type'] === 'enum') {
+
           for ($j = 0; $j < count($form['valid']); $j++) {
             if ($form['valid'][$j] == $str) {
               return array(

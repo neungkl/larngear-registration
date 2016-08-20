@@ -1,8 +1,15 @@
 body {
-  font-family: 'Kanit', Tahoma, sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
+  font-family: 'Kanit', Tahoma, sans-serif;
   color: #222; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Kanit', Tahoma, sans-serif;
+  font-weight: 300; }
+
+.btn {
+  font-size: 1.2em; }
 
 .m-t-1 {
   margin-top: 1rem; }
@@ -70,6 +77,19 @@ body {
     .form-section .section .description .more {
       color: #666;
       font-size: 1.75rem; }
+
+.register-description {
+  font-size: 1.6rem; }
+  .register-description .header {
+    font-size: 3rem; }
+    @media screen and (max-width: 767px) {
+      .register-description .header {
+        font-size: 2.5rem; } }
+  .register-description .highlight {
+    font-size: 1.2em;
+    font-weight: 400; }
+  .register-description .checkbox label {
+    font-weight: 300; }
 
 .register-form, .skip-form {
   vertical-align: middle; }

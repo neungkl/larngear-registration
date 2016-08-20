@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>สมัครค่ายลานเกียร์ ครั้งที่ 15</title>
+    <title>สมัครค่ายลานเกียร์ ครั้งที่ 16</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -20,10 +20,10 @@
     <div class="container-fluid head-bg">
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1 text-center">
-          <div class="head">สมัครค่ายลานเกียร์ ครั้งที่ 15</div>
+          <div class="head">สมัครค่ายลานเกียร์ ครั้งที่ 16</div>
           <div class="btn-section">
-            <div class="btn btn-default">เคยสมัครแล้ว</div>
-            <div class="btn btn-default">ยังไม่เคยสมัคร</div>
+            <div class="btn btn-default skip"><i class="fa fa-check"></i> เคยสมัครแล้ว</div>
+            <div class="btn btn-default regist"><i class="fa fa-times"></i> ยังไม่เคยสมัคร</div>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-9 col-sm-offset-0 col-xs-offset-1 col-xs-10">
               <div class="description" style="display:none;">
-                กรณีที่เคยสมัครแล้ว
+                <i class="fa fa-check-circle"></i> กรณีที่เคยสมัครแล้ว
                 <div class="more">
                   สามารถดาวโหลดเอกสารได้เลย
                 </div>
@@ -85,14 +85,14 @@
               <div class="col-sm-3">
               </div>
               <div class="col-sm-8">
-                <div class="alert alert-danger err-message">test</div>
+                <div class="alert alert-danger err-message m-t-1" style="display:none;">test</div>
               </div>
             </div>
-            <div class="row">
+            <div class="row m-t-1">
               <div class="col-sm-3">
               </div>
               <div class="col-sm-8">
-                <button class="btn btn-primary submit">ดาวโหลดเอกสาร</button>
+                <button class="btn btn-primary submit"><i class="fa fa-download"></i> ดาวโหลดเอกสาร</button>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@
           </div>
           <div class="col-sm-9 col-sm-offset-0 col-xs-offset-1 col-xs-10">
             <div class="description" style="display:none;">
-              ยังไม่เคยสมัครมาก่อน
+              <i class="fa fa-times-circle"></i> ยังไม่เคยสมัครมาก่อน
               <div class="more">
                 กรอกรายละเอียดการสมัครที่ด้านล่างนี้ได้เลย
               </div>
@@ -134,13 +134,57 @@
 
         <div class="row m-b-3">
           <div class="col-xs-12 col-md-offset-1 col-md-10">
-            <div class="container-fluid register-form">
+
+            <div class="container-fluid register-description">
+              <div class="row m-t-2 m-b-1">
+                <div class="col-xs-12 text-center">
+                  <div class="header"><i class="fa fa-file-text-o"></i> รายละเอียดการสมัครลานเกียร์ ครั้งที่ 16</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="jumbotron">
+                    <h3>คุณสมบัติผู้สมัคร</h3>
+                    <ul>
+                      <li>กำลังศึกษาอยู่ในชั้นมัธยมศึกษาปีที่ 4 – 5 ในแผนการเรียน วิทยาศาสตร์ – คณิตศาสตร์</li>
+                      <li>ไม่ป่วยเป็นโรคติดต่อร้ายแรง</li>
+                      <li>สามารถค้างคืนได้ที่ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ได้ตลอดระยะเวลาจัดค่าย</li>
+                    </ul>
+                    <h3>กำหนดการรับสมัคร</h3>
+                    <ul>
+                      <li>เปิดรับสมัคร 1 ก.ย. – 30 ก.ย. 2559</li>
+                      <li>ประกาศรายชื่อผู้มีสิทธิสัมภาษณ์ ภายในสิ้นเดือนตุลาคม</li>
+                      <li>น้องๆ ที่โรงเรียนอยู่ในพื้นที่ กรุงเทพและปริมณฑล จะมีการสัมภาษณ์ที่คณะวิศวกรรมศาสตร จุฬาลงกรณ์มหาวิทยาลัย ในวันที่ <span class="text-danger highlight">5 พ.ย. 2559</span></li>
+                      <li>และ สำหรับน้องที่อยู่ในพื้นที่อื่นๆ จะมีการติดต่อกลับไปหลังการประกาศผล</li>
+                    </ul>
+                    <h3>เอกสารอื่นๆที่ใช้ประกอบการสมัคร</h3>
+                    <ol>
+                      <li>สำเนาบัตรประชาชน หรือ สำเนาทะเบียนบ้านที่มีชื่อตนเองอยู่ในหน้านั้น <span class="text-danger">**</span></li>
+                      <li>เอกสารที่แสดงว่ากำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาชั้นปีที่ 4 หรือ 5 (ปพ.7) <span class="text-danger">**</span></li>
+                      <li>เอกสารตอบรับจากผู้ปกครอง (อยู่ในใบสมัคร)</li>
+                    </ol>
+                    <div class="text-danger">** อย่าลืมเซ็นต์รับรองสำเนาเอกสารที่ไม่ใช่เอกสารต้นฉบับด้วยนะครับ</div>
+                  </div>
+                  <div class="checkbox text-center">
+                    <label>
+                      <input type="checkbox">
+                      คุณได้อ่านรายละเอียดการสมัครครบถ้วนเรียบร้อยแล้ว
+                    </label>
+                  </div>
+                  <div class="text-center">
+                    <div class="btn submit btn-primary m-t-1"><i class="fa fa-sign-in"></i> สมัครเลยยย</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid register-form" style="display:none;">
 
               <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-4">
-                  <div class="alert alert-warning">
-                    <span class="require" style="font-weight: 400; font-size:1.1em;">*</span> คือ จำเป็นต้องกรอก
+                  <div class="alert alert-warning m-t-1">
+                    * คือ จำเป็นต้องกรอก <i class="fa fa-exclamation-triangle"></i>
                   </div>
                 </div>
               </div>
@@ -182,6 +226,12 @@
                 </div>
                 <div class="col-sm-8">
                   <input class="form-control" placeholder="ตัวอย่าง : 1399911155566" type="text" maxlength="15">
+                </div>
+              </div>
+              <div class="row i-address">
+                <div class="col-sm-3 title">ที่อยู่บ้าน <span class="require">*</span></div>
+                <div class="col-sm-8">
+                  <textarea class="form-control" rows="3" maxlength="180"></textarea>
                 </div>
               </div>
               <div class="row i-province">
@@ -238,6 +288,16 @@
                 </div>
                 <div class="col-sm-8">
                   <input class="form-control" placeholder="ตัวอย่าง : เตรียมอุดมศึกษา" type="text" maxlength="40">
+                </div>
+              </div>
+              <div class="row i-schoolProvince">
+                <div class="col-sm-3 title">
+                  จังหวัดของโรงเรียน <span class="require">*</span>
+                </div>
+                <div class="col-sm-4">
+                  <select class="form-control">
+                    <option value="-">-</option>
+                  </select>
                 </div>
               </div>
 
@@ -311,14 +371,14 @@
               <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-8">
-                  <div class="alert alert-danger err-message" style="display:none;"></div>
+                  <div class="alert alert-danger err-message m-t-1" style="display:none;"></div>
                 </div>
               </div>
 
               <div class="row m-t-1">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-8">
-                  <button class="btn btn-primary btn-lg submit">สมัครค่าย !!!</button>
+                  <button class="btn btn-primary submit"><i class="fa fa-sign-in"></i> สมัครค่าย !!!</button>
                 </div>
               </div>
             </div>

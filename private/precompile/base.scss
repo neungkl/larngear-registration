@@ -1,11 +1,18 @@
 $redColor: rgb(193, 3, 3);
 
 body {
-  font-family: 'Kanit', Tahoma, sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
+  font-family: 'Kanit', Tahoma, sans-serif;
   color: #222;
 }
+
+h1,h2,h3,h4,h5,h6 { font-family: 'Kanit', Tahoma, sans-serif; font-weight: 300; }
+
+.btn {
+  font-size: 1.2em;
+}
+
 .m-t-1 {
   margin-top: 1rem;
 }

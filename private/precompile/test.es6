@@ -14,6 +14,7 @@ let test = (() => {
       'blood': 'A',
       'schoolYear': '4',
       'school': 'รส',
+      'schoolProvince': 'นครราชสีมา',
       'facebook': 'neungkl fb',
       'line': 'neungkl line',
       'parentName': 'ชื่อพ่อ',
