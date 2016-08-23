@@ -14,6 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="src/precompile/index.css">
   </head>
   <body>
@@ -234,6 +235,12 @@
                   <textarea class="form-control" rows="3" maxlength="180"></textarea>
                 </div>
               </div>
+              <div class="row i-postcode">
+                <div class="col-sm-3 title">รหัสไปรษณีย์ <span class="require">*</span></div>
+                <div class="col-sm-3">
+                  <input class="form-control" type="text" maxlength="5">
+                </div>
+              </div>
               <div class="row i-province">
                 <div class="col-sm-3 title">จังหวัดที่อยู่ <span class="require">*</span></div>
                 <div class="col-sm-4">
@@ -383,6 +390,22 @@
               </div>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <div class="container p-t-2 p-b-2">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <h3>ติดต่อ</h3>
+            <div>หากมีปัญหาใดๆ เกี่ยวกับระบบรับสมัครสามารถติดต่อได้ที่</div>
+            <ul class="m-t-1">
+              <li>พี่ไมค์ 080-296-0066</li>
+              <li>พี่โอ 091-819-0691</li>
+              <li>พี่ไตเติ้ล 087-303-9711</li>
+            </ul>
           </div>
         </div>
       </div>

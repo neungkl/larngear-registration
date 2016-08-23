@@ -40,6 +40,13 @@
     }
   },
   {
+    "title": "postcode",
+    "type": "text",
+    "valid": {
+      "regex": "^[0-9]{5}$"
+    }
+  },
+  {
     "title": "province",
     "type": "enum",
     "valid": []
@@ -93,7 +100,7 @@
     "title": "parentName",
     "type": "text",
     "valid": {
-        "length": 40
+      "length": 40
     }
   },
   {

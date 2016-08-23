@@ -44,7 +44,7 @@ class Validation {
         if ($form['type'] === 'text' || $form['type'] === 'longtext') {
 
           if (isset($form['valid']['length'])) {
-            if (strlen($str) > (int) $form['valid']['length']) return array(
+            if (mb_strlen($str, 'utf-8') > (int) $form['valid']['length']) return array(
               'success' => 'false',
               'msg' => 'TOO_LONG'
             );

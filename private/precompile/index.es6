@@ -55,7 +55,7 @@ let web = (() => {
         }
       },
       error: function() {
-        console.error('Can\'t Download ProvinceList');
+        console.error('Can\'t Download RegisterFormat');
         $('#err-cnn').modal('show');
       }
     });

@@ -57,7 +57,7 @@ var web = function () {
         }
       },
       error: function error() {
-        console.error('Can\'t Download ProvinceList');
+        console.error('Can\'t Download RegisterFormat');
         $('#err-cnn').modal('show');
       }
     });

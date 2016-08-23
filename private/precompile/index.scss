@@ -1,5 +1,9 @@
 @import 'base';
 
+.btn {
+  font-size: 1.2em;
+}
+
 .head-bg {
   height: 150px;
   background: url('../../images/head-background.jpg') $redColor no-repeat;

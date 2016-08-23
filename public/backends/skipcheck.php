@@ -4,7 +4,7 @@
       die('{"success":false, "msg":"INVALID"}');
     }
 
-    if(strlen($_POST['name']) > 30 || strlen($_POST['surname']) > 30) {
+    if(mb_strlen($_POST['name'], 'utf-8') > 30 || mb_strlen($_POST['surname'], 'utf-8') > 30) {
       die('{"success":false, "msg":"INVALID"}');
     }
 
@@ -17,10 +17,17 @@
 
       $result = $result->fetch_assoc();
 
-      function LCS_Length($s1, $s2)
+      function LCS_Length($s1_raw, $s2_raw)
       {
-        $m = strlen($s1);
-        $n = strlen($s2);
+        $m = mb_strlen($s1_raw, 'utf-8');
+        $n = mb_strlen($s2_raw, 'utf-8');
+
+        for($i=0; $i<$m; $i++) {
+          $s1[$i] = mb_substr($s1_raw, $i, 1, 'utf-8');
+        }
+        for($i=0; $i<$n; $i++) {
+          $s2[$i] = mb_substr($s2_raw, $i, 1, 'utf-8');
+        }
 
         $LCS_Length_Table = array();
         for($i=0; $i <= $m; $i++) {
@@ -46,7 +53,7 @@
       $str1 = $_POST['name']." ".$_POST['surname'];
       $str2 = $result['name']." ".$result['surname'];
 
-      $percent = (LCS_Length($str1,$str2) / strlen($str2));
+      $percent = (LCS_Length($str1,$str2) / mb_strlen($str2, 'utf-8'));
       if($percent > 0.9) {
         require(__dir__."/env.php");
         require(__dir__."/token.php");

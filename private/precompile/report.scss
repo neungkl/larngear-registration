@@ -9,6 +9,13 @@
   .head {
     font-size: 5rem;
     text-shadow: 0 2px 3px #111;
+    color: #FFF;
+
+    &:hover {
+      text-decoration: none !important;
+      color: #FFF;
+    }
+
     @media screen and (max-width: 480px) {
       font-size: 4rem;
     }
@@ -20,5 +27,32 @@
   & > .container {
     background: #f8f8f8;
     box-shadow: 0 0 5px rgba(0,0,0,.5);
+  }
+}
+
+.download-section {
+  img {
+    border: 1px solid #666;
+  }
+}
+
+.content-section {
+  .number-box {
+    border-radius: 50%;
+    color: $redColor;
+    text-align: center;
+    font-size: 5rem;
+    border: 4px dashed;
+  }
+  .description {
+    font-size: 2.75rem;
+    @media screen and (max-width: 767px) {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+    .more {
+      color: #666;
+      font-size: 1.75rem;
+    }
   }
 }
