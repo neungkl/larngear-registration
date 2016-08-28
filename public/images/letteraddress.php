@@ -48,7 +48,10 @@
     $addressMe .= $data['province']."\n";
     $addressMe .= $data['postcode']."\n";
 
-    $addressSent = '....';
+    $addressSent = "กิจการนิสิต คณะวิศวกรรมศาสตร์\n";
+    $addressSent .= "จุฬาลงกรณ์มหาวิทยาลัย\n";
+    $addressSent .= "254 ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน\nกรุงเทพมหานคร\n";
+    $addressSent .= "10330\n";
 
     if(isset($_GET['download'])) {
       imagettftext ( $img, 14 * $scale, 0, 60 * $scale, 125 * $scale, $blackCol, $subFont, "ที่อยู่ผู้ส่ง :");

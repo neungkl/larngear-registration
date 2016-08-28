@@ -25,6 +25,10 @@
 
 ?>
 
+<!--
+  Develope & Design by : Kosate Limpongsa
+//-->
+
 <!doctype html>
 <html lang="th">
   <head>
@@ -81,7 +85,7 @@
                 <li>ดาวโหลด "เอกสารประกอบการสมัคร" ที่ด้านล่างนี้ แล้วตอบคำถามให้ครบ</li>
                 <li>ดาวโหลด "ใบปะหน้าซอง" ที่ด้านล่างนี้</li>
                 <li>ส่ง "เอกสารประกอบการสมัคร" ใส่ซองจดหมาย พร้อมกับแนบสำเนาบัตรประชาชน และ เอกสารที่แสดงว่ากำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาชั้นปีที่ 4 หรือ 5 (ปพ.7) มาในซองด้วย</li>
-                <li>ส่งจดหมาย พร้อมกับติด "ใบปะหน้าซอง" ที่ด้านหน้าของซองจดหมาย แล้วส่งมาที่ ... (ระบุไว้แล้วในใบปะหน้าซอง)</li>
+                <li>ส่งจดหมาย พร้อมกับติด "ใบปะหน้าซอง" ที่ด้านหน้าของซองจดหมาย แล้วส่งมาที่ กืจการนิสิต คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (ระบุไว้แล้วในใบปะหน้าซอง)</li>
               </ol>
               <div class="text text-danger">** การส่งจะต้องส่งเอกสารทั้ง 2 อันพร้อมกันทั้งคู่ โดย "เอกสารประกอบการสมัคร" ใส่ไว้ในซองจดหมาย ส่วน "ใบปะหน้าซอง" ให้ติดด้านหน้าของซองจดหมาย</div>
               <div class="text text-danger">** ส่ง สำเนาบัตรประชาชน และ ปพ.7 มาในซองจดหมายด้วย (พร้อมกับเซ็นต์สำเนาถูกต้อง)</div>
@@ -93,7 +97,7 @@
                 <li>ปพ.7 (พร้อมเซ็นต์สำเนาถูกต้อง)</li>
               </ul>
               <div>แล้วติด <span class="text text-danger">"ใบปะหน้าซอง"</span> ที่ดาวโหลดได้จากเว็บหน้านี้ ลงบนหน้าซองของจดหมาย</div>
-              <div>แล้วส่งมาที่ ... (ที่อยู่ระบุไว้ในใบปะหน้าซอง)</div>
+              <div>แล้วส่งมาที่ กิจการนิสิต คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (ที่อยู่ระบุไว้ในใบปะหน้าซอง)</div>
             </div>
 
             <div class="container-fluid">
@@ -106,15 +110,18 @@
                   <div>หากชื่อ-นามสกุลหรือหมายเลขบัตรประชาชนไม่ถูกต้อง กรุณาติดต่อพี่ๆนะครับ</div>
                 </div>
               </div>
-              <div class="row m-t-2 download-section">
-                <div class="col-md-6 text-center">
+              <div class="row download-section">
+                <div class="col-md-6 text-center m-t-2">
                   <img src="./images/letteraddress.php?pid=<?= $_GET['pid'] ?>&token=<?= $_GET['token'] ?>" class="img-responsive center">
-                  <h4 class="text-center">ใบปะหน้าซอง</h4>
-                  <div class="btn btn-primary"><i class="fa fa-download"></i> ดาวโหลด</div>
+                  <h4 class="text-center p-t-1">ใบปะหน้าซอง</h4>
+                  <div class="more m-b-1"><em>หากรหัสใบปะหน้าซองขึ้นเป็น XXX (ไม่ใช่ LG-รหัส4หลัก)<br>ให้รีบติดต่อพี่ๆอย่างเร็วที่สุด</em></div>
+                  <a href="./images/letteraddress.php?pid=<?= $_GET['pid'] ?>&token=<?= $_GET['token'] ?>&download=1">
+                    <div class="btn btn-primary"><i class="fa fa-download"></i> ดาวโหลด</div>
+                  </a>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center m-t-2">
                   <img src="./images/pattern-background.png" class="img-responsive center">
-                  <h4 class="text-center">เอกสารประกอบการสมัคร</h4>
+                  <h4 class="text-center p-t-1">เอกสารประกอบการสมัคร</h4>
                   <div class="text-center btn btn-primary"><i class="fa fa-download"></i> ดาวโหลด</div>
                 </div>
               </div>

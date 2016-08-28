@@ -121,7 +121,7 @@
     "title": "knowFrom",
     "type": "enum",
     "nonRequire": true,
-    "valid": ["-"]
+    "valid": ["-","facebook","twitter","camphub","school","tutor","friend","other"]
   },
   {
     "title": "allergic",

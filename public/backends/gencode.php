@@ -19,7 +19,7 @@ class GenCode {
     $count = $this->conn->query("SELECT count FROM counter WHERE type=\"$type\"");
     $count = $count->fetch_assoc();
     $count = ((int) $count['count']) + 1;
-    
+
     $status = true;
 
     $status &= $this->conn->query("UPDATE counter SET count=\"$count\" WHERE type=\"$type\"");

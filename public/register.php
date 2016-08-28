@@ -56,11 +56,20 @@
         $gen = new GenCode($conn);
         $type = "-";
 
+        $centerList = array(
+          'กรุงเทพมหานคร',
+          'นนทบุรี',
+          'ปทุมธานี',
+          'สมุทรปราการ',
+          'สมุทรสาคร',
+          'นครปฐม'
+        );
+
         if($_POST['form']['prefix'] == "master" || $_POST['form']['prefix'] == "mr") {
-          if($_POST['form']['province'] == "กรุงเทพมหานคร") $type = "A";
+          if(in_array($_POST['form']['province'], $centerList)) $type = "A";
           else $type = "B";
         } else {
-          if($_POST['form']['province'] == "กรุงเทพมหานคร") $type = "C";
+          if(in_array($_POST['form']['province'], $centerList)) $type = "C";
           else $type = "D";
         }
 

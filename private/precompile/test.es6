@@ -8,7 +8,9 @@ let test = (() => {
       'name' : 'อิอิ',
       'surname' : 'อุอุ',
       'nickname': 'หนึ่ง',
-      'personalID': '1309901185586',
+      'personalID': '13099011855XX',
+      'address' : "ทดสอบ\nอิอิ\nเย้\nอุอุ",
+      'postcode': '10330',
       'province': 'กรุงเทพมหานคร',
       'phone': '0812332486',
       'blood': 'A',
@@ -21,7 +23,7 @@ let test = (() => {
       'parentPhone': '0854443333',
       'parentRelation': 'พ่อ',
       'knowFrom': '-',
-      'allegic': 'แพ้แป้ง'
+      'allergic': 'แพ้แป้ง'
     };
 
     for(let key in inject) {
@@ -30,6 +32,10 @@ let test = (() => {
       } else {
         $('.register-form .i-' + key + ' select').val(inject[key]);
       }
+    }
+
+    if(inject.address) {
+      $('.register-form .i-address textarea').val(inject.address);
     }
   };
 
