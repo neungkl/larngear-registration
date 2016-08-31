@@ -13,3 +13,4 @@ docker-compose.yml
 
 vendor/
 composer.phar
+phpmyadmin
