@@ -10,7 +10,7 @@
 
     $server = $url["host"];
     $username = $url["user"];
-    $password = $url["pass"];
+    $password = urldecode($url["pass"]);
     $db = substr($url["path"], 1);
 
     $conn = new mysqli($server, $username, $password, $db);
