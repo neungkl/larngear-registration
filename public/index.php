@@ -239,18 +239,18 @@
                   <textarea class="form-control" rows="3" maxlength="180"></textarea>
                 </div>
               </div>
-              <div class="row i-postcode">
-                <div class="col-sm-3 title">รหัสไปรษณีย์ <span class="require">*</span></div>
-                <div class="col-sm-3">
-                  <input class="form-control" type="text" maxlength="5">
-                </div>
-              </div>
               <div class="row i-province">
                 <div class="col-sm-3 title">จังหวัดที่อยู่ <span class="require">*</span></div>
                 <div class="col-sm-4">
                   <select class="form-control">
                     <option value="-">-</option>
                   </select>
+                </div>
+              </div>
+              <div class="row i-postcode">
+                <div class="col-sm-3 title">รหัสไปรษณีย์ <span class="require">*</span></div>
+                <div class="col-sm-3">
+                  <input class="form-control" type="text" maxlength="5">
                 </div>
               </div>
               <div class="row i-phone">
@@ -367,7 +367,7 @@
                 <div class="col-sm-8">
                   <select class="form-control">
                     <option value="-">-</option>
-                    <option value="facebok">Facebbok ลานเกียร์แคมป์</option>
+                    <option value="facebook">Facebbok ลานเกียร์แคมป์</option>
                     <option value="twitter">Twitter ลานเกียร์แคมป์</option>
                     <option value="camphub">www.camphub.com</option>
                     <option value="school">โรงเรียน</option>
