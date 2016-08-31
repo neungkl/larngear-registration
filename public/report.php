@@ -120,9 +120,11 @@
                   </a>
                 </div>
                 <div class="col-md-6 text-center m-t-2">
-                  <img src="./images/pattern-background.png" class="img-responsive center">
+                  <img src="./images/cover.jpg" class="img-responsive center">
                   <h4 class="text-center p-t-1">เอกสารประกอบการสมัคร</h4>
-                  <div class="text-center btn btn-primary"><i class="fa fa-download"></i> ดาวโหลด</div>
+                  <a href="./src/larngear-register.pdf" target="_blank">
+                    <div class="text-center btn btn-primary"><i class="fa fa-download"></i> ดาวโหลด</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -145,6 +147,13 @@
               <li>พี่ไมค์ 080-296-0066</li>
               <li>พี่โอ 091-819-0691</li>
               <li>พี่ไตเติ้ล 087-303-9711</li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <h3>ติดตามข่าวสารได้ที่</h3>
+            <ul class="m-t-1">
+              <li><a href="https://www.facebook.com/LARNGEARCAMP/" target="_blank"><h4><i class="fa fa-facebook-square"></i> LarnGear Camp</h4></a></li>
+              <li><a href="https://twitter.com/larngearcamp" target="_blank"><h4><i class="fa fa-twitter-square"></i> @larngearcamp</h4></a></li>
             </ul>
           </div>
         </div>
