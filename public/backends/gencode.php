@@ -22,12 +22,12 @@ class GenCode {
 
     $status = true;
 
-    $status &= $this->conn->query("UPDATE counter SET count=\"$count\" WHERE type=\"$type\"");
+    $status = $status && $this->conn->query("UPDATE counter SET count=\"$count\" WHERE type=\"$type\"");
 
     $code = "LG-".$type.$this->addZero($count);
-    $status &= $this->conn->query("UPDATE student SET code=\"$code\" WHERE personalID=\"$id\"");
+    $status = $status && $this->conn->query("UPDATE student SET code=\"$code\" WHERE personalID=\"$id\"");
 
-    if($status > 0) return 'fail';
+    if($status == false) return 'fail';
     return 'pass';
   }
 }
