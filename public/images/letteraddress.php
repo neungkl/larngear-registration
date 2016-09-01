@@ -44,8 +44,8 @@
     imagettftext ( $img, 20 * $scale, 0, 180 * $scale, 82 * $scale, $blackCol, $font, "ใบปะหน้าซอง ค่ายลานเกียร์ครั้งที่ 16");
 
     $addressMe = $data['prefix']." ".$data['name']." ".$data['surname']."\n";
-    $data['address'] = implode('', explode("\n", $data['address']));
-    $addressMe .= implode("\n",str_split($data['address'], 90))."\n";
+    $data['address'] = implode(" ", explode("\n", $data['address']));
+    $addressMe .= implode("\n",str_split($data['address'], 99))."\n";
     $addressMe .= $data['province']."\n";
     $addressMe .= $data['postcode']."\n";
 
