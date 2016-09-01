@@ -11,7 +11,7 @@
   if(isset($_GET['pid']) && isset($_GET['token']) && $token->check($_GET['pid'], $_GET['token'])) {
     $code = $conn->query("SELECT prefix,name,surname,code,address,province,postcode FROM student WHERE personalID=\"{$_GET['pid']}\"");
     $data = $code->fetch_assoc();
-    $code = $data['code'];
+    $code = is_null($data['code']) ? 'XXXXXX' : $data['code'];
 
     switch($data['prefix']) {
       case 'master' : $data['prefix'] = 'เด็กชาย'; break;
@@ -44,7 +44,7 @@
     imagettftext ( $img, 20 * $scale, 0, 180 * $scale, 82 * $scale, $blackCol, $font, "ใบปะหน้าซอง ค่ายลานเกียร์ครั้งที่ 16");
 
     $addressMe = $data['prefix']." ".$data['name']." ".$data['surname']."\n";
-    $addressMe .= $data['address']."\n";
+    $addressMe .= implode("\n",str_split($data['address'], 90))."\n";
     $addressMe .= $data['province']."\n";
     $addressMe .= $data['postcode']."\n";
 
