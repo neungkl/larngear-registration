@@ -74,6 +74,7 @@
       $data['address'] = $str;
 
       $addressMe .= $data['address'];
+      if($curLen != 0) $addressMe .= "\n";
       $addressMe .= $data['province']."\n";
       $addressMe .= $data['postcode']."\n";
 
