@@ -20,7 +20,7 @@
 
     $scale = 1;
     if(isset($_GET['download'])) {
-      //header('Content-Disposition: Attachment;filename='.$code.'.png');
+      header('Content-Disposition: Attachment;filename='.$code.'.png');
       $scale = 2;
     }
 
