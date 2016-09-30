@@ -252,6 +252,9 @@ var web = function () {
           success: function success(res) {
             if (res.success) {
               window.location.href = "report.php?pid=" + send.personalID + "&token=" + res.token;
+            } else if (res.msg === "end") {
+              $("#confirm").modal('hide');
+              $('.register-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> หมดเวลาการรับสมัครแล้วจ้า').show();
             } else {
               $("#confirm").modal('hide');
               $('.register-form .err-message').html('<i class="fa fa-exclamation-triangle"></i> ไม่สามารถสมัครได้ กรุณาลองใหม่อีกครั้ง<br> ERR_CODE : ' + res.msg.toUpperCase()).show();

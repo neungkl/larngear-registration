@@ -2,6 +2,8 @@
 
   if($_SERVER['REQUEST_METHOD'] === "POST") {
     if($_POST['q'] == "register") {
+      die('{"success":false, "msg":"end"}');
+
       require('backends/connect.php');
       require('backends/validation.php');
 

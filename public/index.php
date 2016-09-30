@@ -117,7 +117,47 @@
         </div>
       </div>
 
-      <div class="section">
+      <div class="section end-section">
+        <div class="row">
+          <div class="col-xs-12 m-t-1">&nbsp;</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <div class="number-box center" style="display:none;">
+              <i class="fa fa-times"></i>
+            </div>
+          </div>
+          <div class="col-sm-9 col-sm-offset-0 col-xs-offset-1 col-xs-10">
+            <div class="description" style="display:none;">
+              <i class="fa fa-times-circle"></i> หมดเวลาการรับสมัครแล้วจ้า
+              <div class="more">
+                ไว้ปีหน้าค่อยมาเจอกันใหม่น้าาา
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row m-b-3">
+          <div class="col-xs-12">
+            <div class="text-center">
+              <h4>รอติดตามข่าวสารและการประกาศผลได้ที่</h4>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="text-center">
+              <h3><a href="https://www.facebook.com/LARNGEARCAMP/" target="_blank"><i class="fa fa-facebook-square"></i> LarnGear Camp</a></h3>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="text-center">
+              <h3><a href="https://twitter.com/larngearcamp" target="_blank"><i class="fa fa-twitter-square"></i> @larngearcamp</a></h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section" style="display:none;">
         <div class="row">
           <div class="col-xs-12 m-t-1">&nbsp;</div>
         </div>

@@ -102,6 +102,9 @@ h1, h2, h3, h4, h5, h6 {
       color: #666;
       font-size: 1.75rem; }
 
+.end-section a {
+  color: inherit; }
+
 .register-description {
   font-size: 1.6rem; }
   .register-description .header {
