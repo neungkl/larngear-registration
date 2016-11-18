@@ -1,6 +1,14 @@
 # Larngear Registration
 
-15th Larngear Registration Website
+16th Larngear Registration Website
+
+<img src="preview.png" width="550">
+
+## Features
+
+- An easily public registration system for end-user
+- Auto-generate ID code group by province and gender
+- Auto-generate envelope cover using GD image library
 
 ## Installation
 
