@@ -75,7 +75,7 @@
           else $type = "D";
         }
 
-        if($gen->generate($_POST['form']['personalID'], $type)) {
+        if($gen->generate($_POST['form']['personalID'], $type) == "pass") {
 
           require('backends/token.php');
           require('backends/env.php');
