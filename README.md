@@ -16,7 +16,14 @@
 2. `npm install && gulp`
 3. `php composer.phar install`
 4. Import database from `backup/Larngearregister.sql`
-5. Don't forget to initialize table `Larngearregister.counter` (Add default type with zero counting number)
+5. Please insert `A,B,C,D` types into table `Larngearregister.counter` (with zero count value), for example:
+
+  | type  | count |
+  | --- | --- |
+  | A | 0 |
+  | B | 0 |
+  | C | 0 |
+  | D | 0 |
 6. Done
 
 PS. you can also deploy via Heroku (`Procfile` available)
