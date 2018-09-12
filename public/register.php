@@ -1,8 +1,8 @@
 <?php
 
-  if($_SERVER['REQUEST_METHOD'] === "POST") {
-    if($_POST['q'] == "register") {
-      die('{"success":false, "msg":"end"}');
+  if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    if ($_POST['q'] == "register") {
+      // die('{"success":false, "msg":"end"}');
 
       require('backends/connect.php');
       require('backends/validation.php');
@@ -20,7 +20,7 @@
 
       $requireF = $validator->getRequireField();
 
-      for($i=0; $i<count($requireF); $i++) {
+      for ($i=0; $i<count($requireF); $i++) {
         if(!isset($_POST['form'][$requireF[$i]]))
           reject('{"success":false, "msg":"Require field"}');
       }
@@ -49,7 +49,7 @@
       $vals = join(",", array_map("addDoubleQuote", $vals));
 
       $result = $conn->query("INSERT INTO student($keys) VALUES ($vals)");
-
+      
       // Pass all validation test
       if($result) {
 
@@ -67,7 +67,7 @@
           'นครปฐม'
         );
 
-        if($_POST['form']['prefix'] == "master" || $_POST['form']['prefix'] == "mr") {
+        if ($_POST['form']['prefix'] == "master" || $_POST['form']['prefix'] == "mr") {
           if(in_array($_POST['form']['province'], $centerList)) $type = "A";
           else $type = "B";
         } else {
@@ -75,7 +75,7 @@
           else $type = "D";
         }
 
-        if($gen->generate($_POST['form']['personalID'], $type) == "pass") {
+        if ($gen->generate($_POST['form']['personalID'], $type) == "pass") {
 
           require('backends/token.php');
           require('backends/env.php');
@@ -91,10 +91,10 @@
         }
       }
 
-      reject('{"success":false, "msg":"Insert errror"}');
+      reject('{"success":false, "msg":"Insert error"}');
 
     }
-    else if($_POST['q'] == "personalCheck") {
+    else if ($_POST['q'] == "personalCheck") {
       require('backends/connect.php');
 
       $result = $conn->query("SELECT personalID FROM student WHERE personalID = {$_POST['pid']}");

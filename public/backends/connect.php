@@ -14,7 +14,7 @@
     $db = substr($url["path"], 1);
 
     $conn = new mysqli($server, $username, $password, $db);
-    mysqli_set_charset($conn,"utf8");
+    $conn->set_charset("utf8");
   }
 
   connect();
