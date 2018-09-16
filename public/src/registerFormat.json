@@ -66,7 +66,7 @@
   {
     "title": "religion",
     "type": "enum",
-    "valid": ["bhuddist","christ", "muslim", "other"]
+    "valid": ["buddhist","christian","muslim","other"]
   },
   {
     "title": "schoolYear",
@@ -143,5 +143,10 @@
     "valid": {
       "length": 90
     }
+  },
+  {
+    "title": "leaflet",
+    "type": "enum",
+    "valid": ["yesmailing","yesincamp","no"]
   }
 ]

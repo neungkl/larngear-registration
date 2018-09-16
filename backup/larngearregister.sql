@@ -51,7 +51,7 @@ CREATE TABLE `student` (
   `province` varchar(30) NOT NULL,
   `phone` char(10) NOT NULL,
   `blood` enum('A','B','O','AB','N') NOT NULL,
-  `religion` enum('bhuddist','christ','muslim','other') NOT NULL,
+  `religion` enum('buddhist','christian','muslim','other') NOT NULL,
   `schoolYear` enum('4','5') NOT NULL,
   `school` varchar(50) NOT NULL,
   `schoolProvince` varchar(30) NOT NULL,
