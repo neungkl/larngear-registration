@@ -128,7 +128,15 @@
     "type": "text",
     "nonRequire": true,
     "valid": {
-        "length": 40
+        "length": 90
+    }
+  },
+  {
+    "title": "drugAllergy",
+    "type": "text",
+    "nonRequire": true,
+    "valid": {
+      "length": 90
     }
   }
 ]

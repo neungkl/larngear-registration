@@ -60,7 +60,8 @@ CREATE TABLE `student` (
   `parentPhone` char(10) NOT NULL,
   `parentRelation` varchar(20) NOT NULL,
   `knowFrom` varchar(10) NOT NULL DEFAULT '-',
-  `allergic` varchar(50) DEFAULT NULL
+  `allergic` varchar(100) DEFAULT NULL,
+  `drugAllergy` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
