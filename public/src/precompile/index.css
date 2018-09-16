@@ -2,7 +2,8 @@ body {
   font-size: 1.6rem;
   font-weight: 300;
   font-family: 'Kanit', Tahoma, sans-serif;
-  color: #222; }
+  color: #222;
+  background-color: #be0a0a; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Kanit', Tahoma, sans-serif;
@@ -85,24 +86,24 @@ h1, h2, h3, h4, h5, h6 {
         .head-bg .btn-section .btn {
           font-size: 1.6rem; } }
 
-.form-section {
+#form-section {
   background: #eee; }
-  .form-section > .container {
+  #form-section > .container {
     background: #f8f8f8;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
-  .form-section .section .number-box {
+  #form-section .section .number-box {
     border-radius: 50%;
     color: #c10303;
     text-align: center;
     font-size: 5rem;
     border: 4px dashed; }
-  .form-section .section .description {
+  #form-section .section .description {
     font-size: 2.75rem; }
     @media screen and (max-width: 767px) {
-      .form-section .section .description {
+      #form-section .section .description {
         text-align: center;
         font-size: 2.5rem; } }
-    .form-section .section .description .more {
+    #form-section .section .description .more {
       color: #666;
       font-size: 1.75rem; }
 

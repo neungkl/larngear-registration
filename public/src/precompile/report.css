@@ -2,7 +2,8 @@ body {
   font-size: 1.6rem;
   font-weight: 300;
   font-family: 'Kanit', Tahoma, sans-serif;
-  color: #222; }
+  color: #222;
+  background-color: #be0a0a; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Kanit', Tahoma, sans-serif;

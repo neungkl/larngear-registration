@@ -7,12 +7,12 @@ let web = (() => {
   let resize = () => {
     let size = 100;
     
-    $('.form-section .number-box').css({
+    $('#form-section .number-box').css({
       width: size,
       height: size
     });
 
-    $('.form-section .number-box, .form-section .description').each(function(id, elm) {
+    $('#form-section .number-box, #form-section .description').each(function(id, elm) {
       $(elm).css({
         paddingTop: (size - parseInt($(elm).css('font-size'))) / 2 - 15
       }).show();
@@ -84,15 +84,19 @@ let web = (() => {
     });
 
     $('#btn-skip').click(function() {
-      $('html, body').animate({
-          scrollTop: $('#skip-form').parents('.section').offset().top
-      }, 500);
+      $('#download-block').slideDown('slow');
+      $('#registration-block').slideUp('slow');
+      // $('html, body').animate({
+      //     scrollTop: $('#skip-form').parents('.section').offset().top
+      // }, 500);
     });
 
     $('#btn-regist').click(function() {
-      $('html, body').animate({
-          scrollTop: $('#register-form').parents('.section').offset().top
-      }, 500);
+      $('#download-block').slideUp('slow');
+      $('#registration-block').slideDown('slow');
+      // $('html, body').animate({
+      //     scrollTop: $('#register-form').parents('.section').offset().top
+      // }, 500);
     });
   };
 
