@@ -10,7 +10,7 @@ class Validation {
     $this->provinceList = json_decode($provinceList, true);
   }
 
-  public function getRequireField() {
+  public function getRequiredFields() {
     $ret = array();
     for($i = 0; $i < count($this->format); $i++) {
       if(!isset($this->format[$i]['nonRequire']) || $this->format[$i]['nonRequire'] == false)
@@ -36,7 +36,7 @@ class Validation {
 
         if (!isset($form['nonRequire']) || $form['nonRequire'] == false) {
           if (!isset($str) || strlen($str) === 0) return array(
-            'success' => 'false',
+            'success' => false,
             'msg' => 'EMPTY'
           );
         }
@@ -45,20 +45,20 @@ class Validation {
 
           if (isset($form['valid']['length'])) {
             if (mb_strlen($str, 'utf-8') > (int) $form['valid']['length']) return array(
-              'success' => 'false',
+              'success' => false,
               'msg' => 'TOO_LONG'
             );
           }
 
           if (isset($form['valid']['regex'])) {
             if (!preg_match('/'.$form['valid']['regex'].'/', $str)) return array(
-              'success' => 'false',
+              'success' => false,
               'msg' => 'REGEX_INCORRECT'
             );
           }
 
           return array(
-            'success' => 'true'
+            'success' => true
           );
         }
 
@@ -68,13 +68,13 @@ class Validation {
           for ($j = 0; $j < count($form['valid']); $j++) {
             if ($form['valid'][$j] == $str) {
               return array(
-                'success' => 'true'
+                'success' => true
               );
             }
           }
 
           return array(
-            'success' => 'false',
+            'success' => false,
             'msg' => 'NO_MATCH'
           );
         }
@@ -82,7 +82,7 @@ class Validation {
     }
 
     return array(
-      'success' => 'false',
+      'success' => false,
       'msg' => 'PROP_NOT_FOUND'
     );
   }

@@ -25,8 +25,8 @@
         <div class="col-xs-10 col-xs-offset-1 text-center">
           <div class="head">สมัครค่ายลานเกียร์ ครั้งที่ 18</div>
           <div class="btn-section">
-            <div class="btn btn-default skip"><i class="fa fa-check"></i> เคยสมัครแล้ว</div>
-            <div class="btn btn-default regist"><i class="fa fa-times"></i> ยังไม่เคยสมัคร</div>
+            <div id="btn-skip" class="btn btn-default"><i class="fa fa-check"></i> เคยสมัครแล้ว</div>
+            <div id="btn-regist" class="btn btn-default"><i class="fa fa-times"></i> ยังไม่เคยสมัคร</div>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-xs-12 col-md-offset-1 col-md-10">
-          <div class="container-fluid skip-form">
+          <div id="skip-form" class="container-fluid">
             <div class="row personalID">
               <div class="col-sm-3 title">
                 เลขประจำตัวประชาชน

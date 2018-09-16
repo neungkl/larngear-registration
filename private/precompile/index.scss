@@ -5,11 +5,15 @@
 }
 
 .head-bg {
-  height: 150px;
+  height: 70vh;
   background: url('../../images/head-background.jpg') $redColor no-repeat;
   background-size: cover;
   background-position: center center;
   color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   .head {
     font-size: 5rem;
     text-shadow: 0 2px 3px #111;
@@ -63,7 +67,7 @@
   a { color:inherit; }
 }
 
-.register-description {
+#register-description {
   font-size: 1.6rem;
   .header {
     font-size: 3rem;
@@ -80,7 +84,7 @@
   }
 }
 
-.register-form,.skip-form {
+#register-form, #skip-form {
   vertical-align: middle;
   & > .row {
     padding: 4px;
