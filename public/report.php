@@ -117,7 +117,7 @@
                   </a>
                 </div>
                 <div class="col-md-6 text-center m-t-2">
-                  <img src="./images/cover.jpg" class="img-responsive center">
+                  <img src="./images/cover.jpg" class="img-responsive center" width="58%">
                   <h4 class="text-center p-t-1">เอกสารประกอบการสมัคร</h4>
                   <a href="./src/larngear-register.pdf" target="_blank">
                     <div class="text-center btn btn-primary"><i class="fa fa-download"></i> ดาวน์โหลด</div>
