@@ -64,6 +64,11 @@
     "valid": ["A","B", "O", "AB", "N"]
   },
   {
+    "title": "religion",
+    "type": "enum",
+    "valid": ["buddhist","christian","muslim","other"]
+  },
+  {
     "title": "schoolYear",
     "type": "enum",
     "valid": ["4", "5"]
@@ -128,7 +133,20 @@
     "type": "text",
     "nonRequire": true,
     "valid": {
-        "length": 40
+        "length": 90
     }
+  },
+  {
+    "title": "drugAllergy",
+    "type": "text",
+    "nonRequire": true,
+    "valid": {
+      "length": 90
+    }
+  },
+  {
+    "title": "leaflet",
+    "type": "enum",
+    "valid": ["yesmailing","yesincamp","no"]
   }
 ]

@@ -3,14 +3,8 @@
 var web = function () {
 
   var resize = function resize() {
-    var height = void 0,
-        size = void 0;
+    var size = 100;
 
-    height = 250;
-    $('.head-bg').css('height', height);
-    $('.head-bg .text-center').css('margin-top', (height - $('.head-bg .text-center').height()) / 2);
-
-    size = 100;
     $('.content-section .number-box').css({
       width: size,
       height: size

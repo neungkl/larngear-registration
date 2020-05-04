@@ -11,7 +11,7 @@ class Token {
     return sha1($pid.$this->extendStr);
   }
 
-  public function check($pid, $hash) {
+  public function check($pid, $hash){
     return $this->hash($pid) == $hash;
   }
 }

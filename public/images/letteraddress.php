@@ -48,7 +48,7 @@
 
     $font = './th-sarabun-new.ttf';
     $subFont = './angsana-new.ttf';
-    imagettftext ( $img, 20 * $scale, 0, 180 * $scale, 82 * $scale, $blackCol, $font, "ใบปะหน้าซอง ค่ายลานเกียร์ครั้งที่ 16");
+    imagettftext($img, 20 * $scale, 0, 180 * $scale, 82 * $scale, $blackCol, $font, "ใบปะหน้าซอง ค่ายลานเกียร์ครั้งที่ 18");
 
     if($scale == 2) {
       $addressMe = $data['prefix']." ".$data['name']." ".$data['surname']."\n";

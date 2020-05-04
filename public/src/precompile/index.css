@@ -2,7 +2,8 @@ body {
   font-size: 1.6rem;
   font-weight: 300;
   font-family: 'Kanit', Tahoma, sans-serif;
-  color: #222; }
+  color: #222;
+  background-color: #be0a0a; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Kanit', Tahoma, sans-serif;
@@ -58,11 +59,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.2em; }
 
 .head-bg {
-  height: 150px;
+  height: 70vh;
   background: url("../../images/head-background.jpg") #c10303 no-repeat;
   background-size: cover;
   background-position: center center;
-  color: #FFF; }
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center; }
   .head-bg .head {
     font-size: 5rem;
     text-shadow: 0 2px 3px #111; }
@@ -81,71 +86,71 @@ h1, h2, h3, h4, h5, h6 {
         .head-bg .btn-section .btn {
           font-size: 1.6rem; } }
 
-.form-section {
+#form-section {
   background: #eee; }
-  .form-section > .container {
+  #form-section > .container {
     background: #f8f8f8;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
-  .form-section .section .number-box {
+  #form-section .section .number-box {
     border-radius: 50%;
     color: #c10303;
     text-align: center;
     font-size: 5rem;
     border: 4px dashed; }
-  .form-section .section .description {
+  #form-section .section .description {
     font-size: 2.75rem; }
     @media screen and (max-width: 767px) {
-      .form-section .section .description {
+      #form-section .section .description {
         text-align: center;
         font-size: 2.5rem; } }
-    .form-section .section .description .more {
+    #form-section .section .description .more {
       color: #666;
       font-size: 1.75rem; }
 
 .end-section a {
   color: inherit; }
 
-.register-description {
+#register-description {
   font-size: 1.6rem; }
-  .register-description .header {
+  #register-description .header {
     font-size: 3rem; }
     @media screen and (max-width: 767px) {
-      .register-description .header {
+      #register-description .header {
         font-size: 2.5rem; } }
-  .register-description .highlight {
+  #register-description .highlight {
     font-size: 1.2em;
     font-weight: 400; }
-  .register-description .checkbox label {
+  #register-description .checkbox label {
     font-weight: 300; }
 
-.register-form, .skip-form {
+#register-form, #skip-form {
   vertical-align: middle; }
-  .register-form > .row, .skip-form > .row {
+  #register-form > .row, #skip-form > .row {
     padding: 4px; }
     @media screen and (max-width: 480px) {
-      .register-form > .row, .skip-form > .row {
+      #register-form > .row, #skip-form > .row {
         padding: 0; } }
-  .register-form .require, .skip-form .require {
+  #register-form .require, #skip-form .require {
     color: #d20808; }
-  .register-form .title, .skip-form .title {
+  #register-form .title, #skip-form .title {
     font-weight: 400;
     padding-top: 10px;
     text-align: right; }
     @media screen and (max-width: 767px) {
-      .register-form .title, .skip-form .title {
+      #register-form .title, #skip-form .title {
         text-align: left;
         padding-bottom: 5px; } }
-    .register-form .title .more, .skip-form .title .more {
+    #register-form .title .more, #skip-form .title .more {
       font-weight: 300;
       color: #999;
       font-style: italic; }
-  .register-form > .err, .skip-form > .err {
+  #register-form > .err, #skip-form > .err {
     transition: all 0.3s;
     color: #c10303; }
-    .register-form > .err .form-control, .skip-form > .err .form-control {
+    #register-form > .err .form-control, #skip-form > .err .form-control {
       transition: all 0.3s;
       border-color: #c10303;
       color: #fc2e2e; }
-    .register-form > .err .more, .skip-form > .err .more {
+    #register-form > .err .more, #skip-form > .err .more {
       transition: all 0.3s;
       color: #f30404; }

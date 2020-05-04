@@ -41,10 +41,9 @@ let test = (() => {
 
   ret.personalCheck = () => {
     $.ajax({
-      url: 'register.php',
+      url: 'check-id.php',
       type: 'POST',
       data: {
-        q: 'personalCheck',
         pid: '1309901185586'
       },
       success: function(res) {

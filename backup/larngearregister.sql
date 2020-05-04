@@ -51,6 +51,7 @@ CREATE TABLE `student` (
   `province` varchar(30) NOT NULL,
   `phone` char(10) NOT NULL,
   `blood` enum('A','B','O','AB','N') NOT NULL,
+  `religion` enum('buddhist','christian','muslim','other') NOT NULL,
   `schoolYear` enum('4','5') NOT NULL,
   `school` varchar(50) NOT NULL,
   `schoolProvince` varchar(30) NOT NULL,
@@ -60,7 +61,9 @@ CREATE TABLE `student` (
   `parentPhone` char(10) NOT NULL,
   `parentRelation` varchar(20) NOT NULL,
   `knowFrom` varchar(10) NOT NULL DEFAULT '-',
-  `allergic` varchar(50) DEFAULT NULL
+  `allergic` varchar(100) DEFAULT NULL,
+  `drugAllergy` varchar(100) DEFAULT NULL,
+  `leaflet` enum('yesmailing','yesincamp','no') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -88,12 +91,17 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `counter`
 --
 ALTER TABLE `counter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `counter` VALUES (1, 'A', 0);
+INSERT INTO `counter` VALUES (2, 'B', 0);
+INSERT INTO `counter` VALUES (3, 'C', 0);
+INSERT INTO `counter` VALUES (4, 'D', 0);
